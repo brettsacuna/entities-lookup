@@ -1,0 +1,32 @@
+{
+  "name": "entities-lookup",
+  "version": "1.0.0",
+  "description": "App for lookups of entities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettsacuna/entities-lookup.git"
+  },
+  "author": "DAVIS BRETTS ACUÑA CORDOVA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brettsacuna/entities-lookup/issues"
+  },
+  "homepage": "https://github.com/brettsacuna/entities-lookup#readme",
+  "dependencies": {
+    "bower-files": "^3.14.1",
+    "browser-sync": "^2.17.5",
+    "browserify": "^13.1.1",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4",
+    "util": "^0.10.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "entities-lookup",
+  "description": "App for lookups of entities",
+  "main": "index.js",
+  "authors": [
+    "DAVIS BRETTS ACUÑA CORDOVA"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/brettsacuna/entities-lookup",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.8",
+    "angular": "^1.5.8"
+  }
+}
