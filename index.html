@@ -2,11 +2,130 @@
   <html lang="es" ng-app="entitiesLookupApp">
     <head>
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="build/css/vendor.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <title>Entities Lookup</title>
     </head>
-
     <body>
+        <div class="navbar-fixed">
+            <nav class="blue darken-1">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo" data-activates="slide-out" style="margin-left: 20px"><i class="material-icons">menu</i>Entities Lookup App</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+                        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="container">
+                    <h5>Búsqueda de Entidades</h5>
+                    <div class="card-panel">
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="tabs tabs-fixed-width">
+                                    <li class="tab col s3"><a href="#busqueda" class="blue-text text-darken-2">Formulario de Búsqueda</a></li>
+                                </ul>
+                            </div>
+                            <div id="busqueda" class="col s12" style="padding: 20px">
+                                <div class="row">
+                                    <div class="input-field col s3">
+                                        <select>
+                                            <option value="" disabled selected>[ Todos ]</option>
+                                        </select>
+                                        <label>Departamento : </label>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <select>
+                                            <option value="" disabled selected>[ Todas ]</option>
+                                        </select>
+                                        <label>Provincia : </label>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <select>
+                                            <option value="" disabled selected>[ Todos ]</option>
+                                        </select>
+                                        <label>Distrito : </label>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <select>
+                                            <option value="" disabled selected>[ Todas ]</option>
+                                        </select>
+                                        <label>Entidades : </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s9">
+                                        <i class="material-icons prefix">dashboard</i>
+                                        <input id="icon_prefix" type="text" class="validate" placeholder="Ingrese criterio de búsqueda">
+                                        <label for="icon_prefix">Criterio de búsqueda</label>
+                                    </div>
+                                    <a class="waves-effect waves-light btn-large" style="display: block"><i class="material-icons right">search</i>Realizar búsqueda</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <ul class="collection">
+                                            <li class="collection-item avatar">
+                                            <i class="material-icons circle">folder</i>
+                                            <span class="title">Title</span>
+                                            <p>First Line <br>
+                                            Second Line
+                                            </p>
+                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                            </li>
+                                            <li class="collection-item avatar">
+                                            <i class="material-icons circle green">insert_chart</i>
+                                            <span class="title">Title</span>
+                                            <p>First Line <br>
+                                            Second Line
+                                            </p>
+                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                            </li>
+                                            <li class="collection-item avatar">
+                                            <i class="material-icons circle red">play_arrow</i>
+                                            <span class="title">Title</span>
+                                            <p>First Line <br>
+                                            Second Line
+                                            </p>
+                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="images/user-bg.jpg">
+                    </div>
+
+                    <a href="#"><img class="circle" src="images/user.jpg"></a>
+                    <a href="#"><span class="white-text name">Administrador</span></a>
+                    <a href="#"><span class="white-text email">administrador@administrador.com</span></a>
+                </div>
+            </li>
+            <li><a class="subheader">Menú Principal</a></li>
+            <li><a class="waves-effect" href="#"><i class="material-icons">search</i>Búsquedas</a></li>
+        </ul>
+
+        <script src="build/js/vendor.min.js"></script>
+        <script src="build/js/app.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $(".brand-logo").sideNav();
+            $('.collapsible').collapsible();
+            $('select').material_select();
+        });
+        </script>
     </body>
   </html>
