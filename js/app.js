@@ -2,7 +2,7 @@
     'use-strict';
 
     angular
-        .module('entitiesLookupApp', ['entitiesLookupApp.controllers', 'entitiesLookupApp.services', 'entitiesLookupApp.directives', 'ui.router'])
+        .module('entitiesLookupApp', ['entitiesLookupApp.controllers', 'entitiesLookupApp.services', 'entitiesLookupApp.directives', 'ui.router', 'ui.materialize'])
         .run(appRun)
         .config(appConfig);
 
@@ -34,6 +34,20 @@
 					templateUrl: 'views/pages/search_tpl.html',
 					data : { title: 'Search Form', sub_title: 'Search Establishments' },
 					controller: 'searchFormCtrl as search_form',
+					resolve: {
+						delay: function($q, $timeout) {
+				          var delay = $q.defer();
+				          $timeout(delay.resolve, 1000);
+				          return delay.promise;
+				        }
+					}
+				})
+                .state('app.maintainers', {
+					parent: 'app',
+					url: '/maintainers',
+					templateUrl: 'views/pages/maintainers_tpl.html',
+					data : { title: 'Maintainers', sub_title: 'Maintainers' },
+					controller: 'maintainersCtrl as maintainers',
 					resolve: {
 						delay: function($q, $timeout) {
 				          var delay = $q.defer();

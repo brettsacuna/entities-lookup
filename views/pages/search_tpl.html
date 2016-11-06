@@ -1,40 +1,40 @@
 <div class="row">
     <div class="col s12">
-        <ul class="tabs tabs-fixed-width">
-            <li class="tab col s3"><a href="#busqueda" class="blue-text text-darken-2">Search Form</a></li>
+        <ul tabs class="tabs tabs-fixed-width">
+            <li class="tab col s6"><a href="#busqueda" class="blue-text text-darken-2">Search Form</a></li>
         </ul>
     </div>
     <div id="busqueda" class="col s12" style="padding: 20px">
         <div class="row">
             <div class="input-field col s3">
-                <select name="region" id="region" ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-if="search_form.regions.length > 0" ng-change="search_form.get_provinces(search_form.region)">
+                <select material-select name="region" id="region" ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-if="search_form.regions.length > 0" ng-change="search_form.get_provinces(search_form.region)">
                     <option value="">[ All ]</option>
                 </select>
                 <label for="region">Region : </label>
             </div>
             <div class="input-field col s3">
-                <select name="province" id="province" ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-options="item as item.province for item in search_form.provinces track by item.code_province" ng-if="search_form.provinces.length > 0" ng-change="search_form.get_districts(search_form.province)">
+                <select material-select name="province" id="province" ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-options="item as item.province for item in search_form.provinces track by item.code_province" ng-if="search_form.provinces.length > 0" ng-change="search_form.get_districts(search_form.province)">
                     <option value="">[ All ]</option>
                 </select>
                 <label for="province">Province : </label>
             </div>
             <div class="input-field col s3">
-                <select name="district" id="district" ng-model="search_form.district" ng-disabled="search_form.districts.length == 0" ng-options="item as item.district for item in search_form.districts track by item.code_district" ng-if="search_form.districts.length > 0">
-                    <option value="" disabled selected>[ All ]</option>
+                <select material-select name="district" id="district" ng-model="search_form.district" ng-disabled="search_form.districts.length == 0" ng-options="item as item.district for item in search_form.districts track by item.code_district" ng-if="search_form.districts.length > 0">
+                    <option value="">[ All ]</option>
                 </select>
                 <label for="district">District : </label>
             </div>
             <div class="input-field col s3">
-                <select>
-                    <option value="" disabled selected>[ All ]</option>
+                <select material-select name="category" id="category">
+                    <option value="">[ All ]</option>
                 </select>
-                <label>Category : </label>
+                <label for="category">Category : </label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s9">
+            <div input-field class="input-field col s9">
                 <i class="material-icons prefix">dashboard</i>
-                <input id="icon_prefix" type="text" class="validate">
+                <input id="icon_prefix" type="text" class="validate" placeholder="Type keywords">
                 <label for="icon_prefix">Keywords</label>
             </div>
             <a class="waves-effect waves-light btn-large" style="display: block"><i class="material-icons right">search</i>Search</a>

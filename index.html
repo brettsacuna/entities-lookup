@@ -11,7 +11,7 @@
         <div class="navbar-fixed">
             <nav class="blue darken-1">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo" data-activates="slide-out" style="margin-left: 20px"><i class="material-icons">menu</i>Establishments Lookup App</a>
+                    <a href="#" class="brand-logo" data-activates="slide-out" data-sidenav="left" data-closeonclick="true" style="margin-left: 20px"><i class="material-icons">menu</i>Establishments Lookup App</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html"><i class="material-icons">search</i></a></li>
                         <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
@@ -29,26 +29,23 @@
                     </div>
 
                     <a href="#"><img class="circle" src="images/user.jpg"></a>
-                    <a href="#"><span class="white-text name">Administrador</span></a>
-                    <a href="#"><span class="white-text email">administrador@administrador.com</span></a>
+                    <a href="#"><span class="white-text name">Administrator</span></a>
+                    <a href="#"><span class="white-text email">administrator@administrator.com</span></a>
                 </div>
             </li>
-            <li><a class="subheader">Menú Principal</a></li>
+            <li><a class="subheader">Main Menú</a></li>
             <li ui-sref-active="bold active">
-                <a class="waves-effect" ui-sref="app.search"><i class="material-icons">search</i>Búsquedas</a>
+                <a class="waves-effect" ui-sref="app.search"><i class="material-icons">search</i>Queries</a>
             </li>
-            <li><a class="waves-effect" href="#"><i class="material-icons">web</i>Mantenedores</a></li>
-            <li><a class="waves-effect" href="#"><i class="material-icons">trending_up</i>Reportes</a></li>
+            <li ui-sref-active="bold active">
+                <a class="waves-effect" ui-sref="app.maintainers"><i class="material-icons">web</i>Maintainers</a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#"><i class="material-icons">trending_up</i>Reports</a>
+            </li>
         </ul>
 
         <script src="build/js/vendor.min.js"></script>
         <script src="build/js/app.js"></script>
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $(".brand-logo").sideNav();
-            $('.collapsible').collapsible();
-            $('select').material_select();
-        });
-        </script>
     </body>
   </html>

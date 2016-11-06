@@ -3,9 +3,10 @@
 
     angular
         .module('entitiesLookupApp.controllers', [])
-        .controller('searchFormCtrl', searchFormCtrl);
+        .controller('searchFormCtrl', searchFormCtrl)
+        .controller('maintainersCtrl', maintainersCtrl);
 
-    function searchFormCtrl(searchFct) {
+    function searchFormCtrl (searchFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
 
         search_form.regions = []; search_form.provinces = []; search_form.districts = [];
@@ -100,5 +101,9 @@
         };
 
         search_form.get_regions();
+    }
+
+    function maintainersCtrl () {
+        var maintainers = this;
     }
 })();

@@ -18,6 +18,7 @@
     "materialize": "^0.97.8",
     "angular": "^1.5.8",
     "underscore": "^1.8.3",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "angular-materialize": "^0.2.1"
   }
 }

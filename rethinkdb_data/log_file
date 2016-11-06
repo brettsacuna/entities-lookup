@@ -32,3 +32,42 @@
 2016-11-06T09:26:51.267193762 10550.823595s notice: All client connections closed.
 2016-11-06T09:26:51.267203819 10550.823605s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
 2016-11-06T09:26:51.408599366 10550.965000s notice: Storage engine shut down.
+2016-11-06T09:51:56.507737093 5.388756s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
+2016-11-06T09:51:56.558090849 5.439116s notice: Running on Linux 4.8.4-040804-generic x86_64
+2016-11-06T09:51:56.558239888 5.439258s notice: Loading data from directory /home/bretts/Desktop/entities-lookup/rethinkdb_data
+2016-11-06T09:51:57.004095020 5.885114s info: Automatically using cache size of 1621 MB
+2016-11-06T09:51:57.023628528 5.904648s notice: Listening for intracluster connections on port 29015
+2016-11-06T09:51:58.304567393 7.185587s notice: Listening for client driver connections on port 28015
+2016-11-06T09:51:58.305097071 7.186116s notice: Listening for administrative HTTP connections on port 9090
+2016-11-06T09:51:58.314342126 7.195361s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T09:51:58.335451081 7.216471s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T09:51:58.350682946 7.231702s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T09:51:58.350694400 7.231713s notice: Server ready, "bretts_Satellite_M645_0x7" 1da2d79b-05b9-469f-ad7c-a12aa0115e9d
+2016-11-06T09:51:59.320202291 8.201221s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Starting a new Raft election for term 2.
+2016-11-06T09:51:59.392041821 8.273061s info: Table a4ca94ab-932a-445c-b800-090932461ad7: This server is Raft leader for term 2. Latest log index is 4.
+2016-11-06T09:51:59.589950939 8.470970s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Starting a new Raft election for term 2.
+2016-11-06T09:51:59.675449009 8.556468s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Starting a new Raft election for term 2.
+2016-11-06T09:51:59.765294150 8.646314s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: This server is Raft leader for term 2. Latest log index is 5.
+2016-11-06T09:51:59.961920211 8.842939s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: This server is Raft leader for term 2. Latest log index is 5.
+2016-11-06T10:03:02.700541675 671.581561s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-11-06T10:03:02.700658240 671.581677s notice: Shutting down client connections...
+2016-11-06T10:03:02.700848976 671.581868s notice: All client connections closed.
+2016-11-06T10:03:02.700860290 671.581879s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-11-06T10:03:02.713294586 671.594314s notice: Storage engine shut down.
+2016-11-06T10:56:57.732669639 0.180504s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
+2016-11-06T10:56:57.748682442 0.196522s notice: Running on Linux 4.8.4-040804-generic x86_64
+2016-11-06T10:56:57.748822755 0.196656s notice: Loading data from directory /home/bretts/Desktop/entities-lookup/rethinkdb_data
+2016-11-06T10:56:58.106537436 0.554372s info: Automatically using cache size of 1611 MB
+2016-11-06T10:56:58.144249525 0.592084s notice: Listening for intracluster connections on port 29015
+2016-11-06T10:56:58.477209860 0.925045s notice: Listening for client driver connections on port 28015
+2016-11-06T10:56:58.477509483 0.925343s notice: Listening for administrative HTTP connections on port 9090
+2016-11-06T10:56:58.490564605 0.938399s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T10:56:58.506782045 0.954616s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T10:56:58.517587827 0.965421s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, 192.168.0.5, ::1, ::64fd:a4f8:4725:9a95, fe80::d202:99bc:d043:bdb0%3
+2016-11-06T10:56:58.517597186 0.965430s notice: Server ready, "bretts_Satellite_M645_0x7" 1da2d79b-05b9-469f-ad7c-a12aa0115e9d
+2016-11-06T10:56:59.436037914 1.883872s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Starting a new Raft election for term 3.
+2016-11-06T10:56:59.761006248 2.208840s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: This server is Raft leader for term 3. Latest log index is 8.
+2016-11-06T10:56:59.835453607 2.283287s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Starting a new Raft election for term 3.
+2016-11-06T10:56:59.938463090 2.386297s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: This server is Raft leader for term 3. Latest log index is 8.
+2016-11-06T10:57:00.051865444 2.499699s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Starting a new Raft election for term 3.
+2016-11-06T10:57:00.147468360 2.595302s info: Table a4ca94ab-932a-445c-b800-090932461ad7: This server is Raft leader for term 3. Latest log index is 7.
