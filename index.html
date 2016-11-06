@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="stylesheet" href="build/css/vendor.min.css">
       <link rel="stylesheet" href="css/styles.css">
-      <title>Establishments Lookup</title>
+      <title ng-bind="'Establishments Lookup | ' + $state.current.data.title"></title>
     </head>
     <body>
         <div class="navbar-fixed">
@@ -19,88 +19,7 @@
                 </div>
             </nav>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="container">
-                    <h5>Search Establishments</h5>
-                    <div class="card-panel">
-                        <div class="row">
-                            <div class="col s12">
-                                <ul class="tabs tabs-fixed-width">
-                                    <li class="tab col s3"><a href="#busqueda" class="blue-text text-darken-2">Search Form</a></li>
-                                </ul>
-                            </div>
-                            <div id="busqueda" class="col s12" style="padding: 20px" ng-controller="searchFormCtrl as search_form">
-                                <div class="row">
-                                    <div class="input-field col s3">
-                                        <select name="region" id="region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-model="search_form.region" ng-if="search_form.regions.length > 0">
-                                            <option value="" disabled selected>[ All ]</option>
-                                        </select>
-                                        <label for="region">Region : </label>
-                                    </div>
-                                    <div class="input-field col s3">
-                                        <select>
-                                            <option value="" disabled selected>[ All ]</option>
-                                        </select>
-                                        <label>Province : </label>
-                                    </div>
-                                    <div class="input-field col s3">
-                                        <select>
-                                            <option value="" disabled selected>[ All ]</option>
-                                        </select>
-                                        <label>District : </label>
-                                    </div>
-                                    <div class="input-field col s3">
-                                        <select>
-                                            <option value="" disabled selected>[ All ]</option>
-                                        </select>
-                                        <label>Category : </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s9">
-                                        <i class="material-icons prefix">dashboard</i>
-                                        <input id="icon_prefix" type="text" class="validate" placeholder="Type keywords">
-                                        <label for="icon_prefix">Keywords</label>
-                                    </div>
-                                    <a class="waves-effect waves-light btn-large" style="display: block"><i class="material-icons right">search</i>Search</a>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <ul class="collection">
-                                            <li class="collection-item avatar">
-                                            <i class="material-icons circle">folder</i>
-                                            <span class="title">Title</span>
-                                            <p>First Line <br>
-                                            Second Line
-                                            </p>
-                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                                            </li>
-                                            <li class="collection-item avatar">
-                                            <i class="material-icons circle green">insert_chart</i>
-                                            <span class="title">Title</span>
-                                            <p>First Line <br>
-                                            Second Line
-                                            </p>
-                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                                            </li>
-                                            <li class="collection-item avatar">
-                                            <i class="material-icons circle red">play_arrow</i>
-                                            <span class="title">Title</span>
-                                            <p>First Line <br>
-                                            Second Line
-                                            </p>
-                                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ui-view="content@"></div>
 
         <ul id="slide-out" class="side-nav">
             <li>
@@ -115,7 +34,11 @@
                 </div>
             </li>
             <li><a class="subheader">Menú Principal</a></li>
-            <li><a class="waves-effect" href="#"><i class="material-icons">search</i>Búsquedas</a></li>
+            <li ui-sref-active="bold active">
+                <a class="waves-effect" ui-sref="app.search"><i class="material-icons">search</i>Búsquedas</a>
+            </li>
+            <li><a class="waves-effect" href="#"><i class="material-icons">web</i>Mantenedores</a></li>
+            <li><a class="waves-effect" href="#"><i class="material-icons">trending_up</i>Reportes</a></li>
         </ul>
 
         <script src="build/js/vendor.min.js"></script>

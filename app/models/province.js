@@ -1,7 +1,7 @@
 var Province = require ("./../schemas/province.js").Province;
 
 exports.list = function (request, response, next) {
-    Province.run().then(function(provinces) {
+    Province.filter({code_region : request.query.region}).run().then(function(provinces) {
         response.send(JSON.stringify(provinces));
     }).error(function(error) {
         response.send(500, {error: error.message});

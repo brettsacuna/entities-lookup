@@ -1,0 +1,34 @@
+2016-11-06T06:31:01.912381659 1.468784s notice: Recursively removing directory /home/bretts/Desktop/entities-lookup/rethinkdb_data/tmp
+2016-11-06T06:31:01.967659681 1.524061s notice: Initializing directory /home/bretts/Desktop/entities-lookup/rethinkdb_data
+2016-11-06T06:31:01.967803500 1.524204s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/bretts/Desktop/entities-lookup/rethinkdb_data' did not already exist or is empty.)
+2016-11-06T06:31:01.967910997 1.524311s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
+2016-11-06T06:31:01.972511655 1.528918s notice: Running on Linux 4.8.4-040804-generic x86_64
+2016-11-06T06:31:01.972657779 1.529058s notice: Loading data from directory /home/bretts/Desktop/entities-lookup/rethinkdb_data
+2016-11-06T06:31:02.391727820 1.948129s info: Automatically using cache size of 1213 MB
+2016-11-06T06:31:02.510986933 2.067388s notice: Listening for intracluster connections on port 29015
+2016-11-06T06:31:02.565803291 2.122204s notice: Listening for client driver connections on port 28015
+2016-11-06T06:31:02.566549624 2.122950s notice: Listening for administrative HTTP connections on port 9090
+2016-11-06T06:31:02.629542321 2.185944s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T06:31:02.738376808 2.294778s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T06:31:02.799113395 2.355514s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T06:31:02.799128412 2.355529s notice: Server ready, "bretts_Satellite_M645_0x7" 1da2d79b-05b9-469f-ad7c-a12aa0115e9d
+2016-11-06T06:33:35.929571514 155.485972s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Starting a new Raft election for term 1.
+2016-11-06T06:33:35.986734025 155.543136s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Added replica on this server.
+2016-11-06T06:33:35.986754279 155.543155s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Starting a new Raft election for term 1.
+2016-11-06T06:33:36.006053173 155.562454s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Added replica on this server.
+2016-11-06T06:33:36.006338194 155.562738s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Starting a new Raft election for term 1.
+2016-11-06T06:33:36.006604358 155.563005s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Added replica on this server.
+2016-11-06T06:33:36.134257124 155.690658s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: This server is Raft leader for term 1. Latest log index is 0.
+2016-11-06T06:33:36.134339467 155.690740s info: Table a4ca94ab-932a-445c-b800-090932461ad7: This server is Raft leader for term 1. Latest log index is 0.
+2016-11-06T06:33:36.134389263 155.690790s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: This server is Raft leader for term 1. Latest log index is 0.
+2016-11-06T06:33:37.773098234 157.329499s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Configuration is changing.
+2016-11-06T06:33:37.773495699 157.329897s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Configuration is changing.
+2016-11-06T06:33:37.790954695 157.347356s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Configuration is changing.
+2016-11-06T06:33:37.791953910 157.348356s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Configuration is changing.
+2016-11-06T06:33:37.792253668 157.348656s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Configuration is changing.
+2016-11-06T06:33:37.792483095 157.348884s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Configuration is changing.
+2016-11-06T09:26:51.266888835 10550.823290s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-11-06T09:26:51.267046885 10550.823448s notice: Shutting down client connections...
+2016-11-06T09:26:51.267193762 10550.823595s notice: All client connections closed.
+2016-11-06T09:26:51.267203819 10550.823605s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-11-06T09:26:51.408599366 10550.965000s notice: Storage engine shut down.

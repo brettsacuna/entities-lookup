@@ -1,7 +1,7 @@
 var District = require ("./../schemas/district.js").District;
 
 exports.list = function (request, response, next) {
-    District.run().then(function(districts) {
+    District.filter({code_region : request.query.region, code_province : request.query.province}).run().then(function(districts) {
         response.send(JSON.stringify(districts));
     }).error(function(error) {
         response.send(500, {error: error.message});
