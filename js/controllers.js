@@ -105,5 +105,9 @@
 
     function maintainersCtrl () {
         var maintainers = this;
+
+        maintainers.category = {};
+        maintainers.category.datos = {};
+        maintainers.category.action = 0;
     }
 })();

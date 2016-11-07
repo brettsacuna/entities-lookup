@@ -7,11 +7,76 @@
     </div>
     <div id="establishment" class="col s12" style="padding: 20px">
         <div class="row">
-            <div class="col s8">
-                <h5>New Establisments</h5>
+            <div class="col s7">
+                <h5 class="form-section" ng-if="maintainers.category.action == 0">New Category</h5>
+                <h5 class="form-section" ng-if="maintainers.category.action != 0">Category Selected ->&nbsp;<span class="label label-primary">{{}}</span></h5>
+                <form name="formCategory" novalidate ng-submit="maintainers.save_category(maintainers.category.data); formCategory.$setPristine()">
+                    <div class="row">
+                        <div input-field class="input-field col s12">
+                            <i class="material-icons prefix">description</i>
+                            <input type="text" placeholder="Type description" ng-model="maintainers.category.data.description">
+                            <label>Description : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block"><i class="material-icons right">save</i>Save</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col s4">
-
+            <div class="col s5">
+                <h5 class="form-section">Categories Registered</h5>
+                <div class="row">
+                    <div input-field class="col s8">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" placeholder="Type category" ng-model="maintainers.category.filter">
+                        <label>Filter : </label>
+                    </div>
+                    <div class="col s4">
+                        <label>&nbsp;</label>
+                        <a class="waves-effect waves-light btn orange darken-1" style="display: block"><i class="material-icons right">search</i>Filter</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <table class="bordered">
+                            <caption>List categories</caption>
+                            <thead class="grey darken-1 white-text">
+                                <tr>
+                                    <th class="center-align">#</th>
+                                    <th class="center-align">Category</th>
+                                    <th class="center-align">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>HOSPITALES</td>
+                                    <td class="center-align">
+                                        <a class="waves-effect waves-light btn blue darken-1"><i class="material-icons">mode_edit</i></a>
+                                        <a class="waves-effect waves-light btn red darken-1"><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <pagination
+                            page="1"
+                            page-size="5"
+                            total="50"
+                            show-prev-next="true"
+                            use-simple-prev-next="false"
+                            dots="...."
+                            hide-if-empty="false"
+                            adjacent="1"
+                            scroll-top="true"
+                            pagination-action="" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

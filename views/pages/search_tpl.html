@@ -5,66 +5,57 @@
         </ul>
     </div>
     <div id="busqueda" class="col s12" style="padding: 20px">
+        <h5>Filters</h5>
         <div class="row">
             <div class="input-field col s3">
-                <select material-select name="region" id="region" ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-change="search_form.get_provinces(search_form.region)">
+                <select material-select ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-change="search_form.get_provinces(search_form.region)" ng-if="search_form.regions.length > 0">
                     <option value="">[ All ]</option>
                 </select>
-                <label for="region">Region : <span class="new badge red" data-badge-caption="rows">{{search_form.regions.length}}</span></label>
+                <label>Region : <span class="new badge red" data-badge-caption="rows">{{search_form.regions.length}}</span></label>
             </div>
             <div class="input-field col s3">
-                <select material-select name="province" id="province" ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-options="item as item.province for item in search_form.provinces track by item.code_province" ng-change="search_form.get_districts(search_form.province)" ng-if="search_form.provinces.length">
+                <select material-select ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-options="item as item.province for item in search_form.provinces track by item.code_province" ng-change="search_form.get_districts(search_form.province)" ng-if="search_form.provinces.length > 0">
                     <option value="">[ All ]</option>
                 </select>
                 <label for="province">Province : <span ng-if="search_form.provinces.length > 0" class="new badge blue" data-badge-caption="rows">{{search_form.provinces.length}}</span></label>
             </div>
             <div class="input-field col s3">
-                <select material-select name="district" id="district" ng-model="search_form.district" ng-disabled="search_form.districts.length == 0" ng-options="item as item.district for item in search_form.districts track by item.code_district" ng-if="search_form.districts.length">
+                <select material-select ng-model="search_form.district" ng-disabled="search_form.districts.length == 0" ng-options="item as item.district for item in search_form.districts track by item.code_district" ng-if="search_form.districts.length > 0">
                     <option value="">[ All ]</option>
                 </select>
                 <label for="district">District : <span ng-if="search_form.districts.length > 0" class="new badge orange" data-badge-caption="rows">{{search_form.districts.length}}</span></label>
             </div>
             <div class="input-field col s3">
-                <select material-select name="category" id="category">
+                <select material-select>
                     <option value="">[ All ]</option>
                 </select>
-                <label for="category">Category : </label>
+                <label>Category : </label>
             </div>
         </div>
         <div class="row">
-            <div input-field class="input-field col s9">
+            <div input-field class="col s9">
                 <i class="material-icons prefix">dashboard</i>
-                <input id="icon_prefix" type="text" class="validate" placeholder="Type keywords">
-                <label for="icon_prefix">Keywords</label>
+                <input type="text" placeholder="Type keywords">
+                <label>Keywords</label>
             </div>
-            <a class="waves-effect waves-light btn-large" style="display: block"><i class="material-icons right">search</i>Search</a>
+            <div class="col s3">
+                <a class="waves-effect waves-light btn-large orange darken-1" style="display: block" onclick="Materialize.showStaggeredList('#establishments')"><i class="material-icons right">search</i>Search</a>
+            </div>
         </div>
         <div class="row">
             <div class="col s12">
-                <ul class="collection">
+                <h5>Establishments Found</h5>
+                <ul class="collection" id="establishments">
                     <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                    Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                    Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                    Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        <i class="material-icons circle red darken-1">business</i>
+                        <b><span class="title">HOSPITAL GUILLERMO ALMENARA</span></b>
+                        <div class="valign-wrapper">
+                            <i class="material-icons">my_location</i>&nbsp;<h6>Av. Canadá 1045 - San Borja - Lima</h6>&nbsp;<i class="material-icons">location_on</i>&nbsp;<a href="#">Ver mapa</a>
+                        </div>
+                        <div class="valign-wrapper">
+                            <i class="material-icons">settings_cell</i>&nbsp;<h6><b>Celular : </b>+51 979255883</h6>&nbsp;<i class="material-icons">dialer_sip</i>&nbsp;<h6><b>Fijo : </b>(01) 505 2663</h6>
+                        </div>
+                        <a href="#" class="secondary-content"><i class="material-icons medium grey-text">visibility</i></a>
                     </li>
                 </ul>
             </div>
