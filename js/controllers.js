@@ -101,7 +101,17 @@
             });
         };
 
-        search_form.get_regions();
+        search_form.get_categories = function () {
+            searchFct.getCategories(0, 0, "").then(function (response) {
+                search_form.categories = response;
+            }).catch(function (reason) {
+                console.log(reason);
+            });
+        };
+
+        //search_form.get_regions();
+
+        search_form.get_categories();
     }
 
     function maintainersCtrl (messageFct, searchFct) {

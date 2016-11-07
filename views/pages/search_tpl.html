@@ -7,7 +7,7 @@
     <div id="busqueda" class="col s12" style="padding: 20px">
         <h5>Filters</h5>
         <div class="row">
-            <div class="input-field col s3">
+            <!--<div class="input-field col s3">
                 <select material-select ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-change="search_form.get_provinces(search_form.region)" ng-if="search_form.regions.length > 0">
                     <option value="">[ All ]</option>
                 </select>
@@ -24,9 +24,9 @@
                     <option value="">[ All ]</option>
                 </select>
                 <label for="district">District : <span ng-if="search_form.districts.length > 0" class="new badge orange" data-badge-caption="rows">{{search_form.districts.length}}</span></label>
-            </div>
+            </div>-->
             <div class="input-field col s3">
-                <select material-select>
+                <select material-select ng-model="search_form.category" ng-options="item as item.category for item in search_form.categories track by item.id" ng-if="search_form.categories.length > 0">
                     <option value="">[ All ]</option>
                 </select>
                 <label>Category : </label>
