@@ -1,4 +1,5 @@
-var thinky  = require("thinky")({db : "establishments"});
+var config  = require('./../../config.json');
+var thinky  = require("thinky")({db : config.rethinkdb.db});
 var type    = thinky.type;
 var r       = thinky.r;
 

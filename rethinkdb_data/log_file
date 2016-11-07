@@ -71,3 +71,25 @@
 2016-11-06T10:56:59.938463090 2.386297s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: This server is Raft leader for term 3. Latest log index is 8.
 2016-11-06T10:57:00.051865444 2.499699s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Starting a new Raft election for term 3.
 2016-11-06T10:57:00.147468360 2.595302s info: Table a4ca94ab-932a-445c-b800-090932461ad7: This server is Raft leader for term 3. Latest log index is 7.
+2016-11-06T13:07:35.373214462 1.458161s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
+2016-11-06T13:07:35.391726670 1.476678s notice: Running on Linux 4.8.4-040804-generic x86_64
+2016-11-06T13:07:35.391875080 1.476821s notice: Loading data from directory /home/bretts/Desktop/entities-lookup/rethinkdb_data
+2016-11-06T13:07:35.735900922 1.820847s info: Automatically using cache size of 1488 MB
+2016-11-06T13:07:35.880924913 1.965872s notice: Listening for intracluster connections on port 29015
+2016-11-06T13:07:36.624986683 2.709934s notice: Listening for client driver connections on port 28015
+2016-11-06T13:07:36.625409636 2.710356s notice: Listening for administrative HTTP connections on port 9090
+2016-11-06T13:07:36.656028977 2.740976s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T13:07:36.841567997 2.926514s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T13:07:36.924983718 3.009930s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, 192.168.1.11, ::1, fe80::5eb7:2042:cbaf:d78a%3
+2016-11-06T13:07:36.924999920 3.009946s notice: Server ready, "bretts_Satellite_M645_0x7" 1da2d79b-05b9-469f-ad7c-a12aa0115e9d
+2016-11-06T13:07:37.485748663 3.570696s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: Starting a new Raft election for term 4.
+2016-11-06T13:07:37.782414182 3.867361s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: Starting a new Raft election for term 4.
+2016-11-06T13:07:38.260970045 4.345917s info: Table 41e91e8b-d093-4ff4-bac2-43fc09d83725: This server is Raft leader for term 4. Latest log index is 11.
+2016-11-06T13:07:38.268226828 4.353173s info: Table bdc84d91-8867-4158-b5bc-d14900a8eb54: This server is Raft leader for term 4. Latest log index is 11.
+2016-11-06T13:07:38.380659652 4.465606s info: Table a4ca94ab-932a-445c-b800-090932461ad7: Starting a new Raft election for term 4.
+2016-11-06T13:07:38.479838973 4.564786s info: Table a4ca94ab-932a-445c-b800-090932461ad7: This server is Raft leader for term 4. Latest log index is 10.
+2016-11-06T13:52:06.475746186 2672.560694s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-11-06T13:52:06.475900602 2672.560848s notice: Shutting down client connections...
+2016-11-06T13:52:06.492048755 2672.576996s notice: All client connections closed.
+2016-11-06T13:52:06.492065586 2672.577012s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-11-06T13:52:07.079507279 2673.164454s notice: Storage engine shut down.

@@ -6,8 +6,8 @@ var cors            = require('cors');
 //var multer          = require('multer');
 
 var region          = require("./models/region.js");
-var province          = require("./models/province.js");
-var district          = require("./models/district.js");
+var province        = require("./models/province.js");
+var district        = require("./models/district.js");
 
 var app = express();
 
