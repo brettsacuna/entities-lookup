@@ -8,6 +8,7 @@ var cors            = require('cors');
 var region          = require("./models/region.js");
 var province        = require("./models/province.js");
 var district        = require("./models/district.js");
+var category        = require("./models/category.js");
 
 var app = express();
 
@@ -30,5 +31,11 @@ app.route('/district/list').get(district.list);
 app.route('/district/add').post(district.add);
 app.route('/district/edit').put(district.edit);
 app.route('/district/delete').delete(district.delete);
+
+app.route('/category/list').get(category.list);
+app.route('/category/count').get(category.count);
+app.route('/category/add').post(category.add);
+app.route('/category/edit').put(category.edit);
+app.route('/category/delete').delete(category.delete);
 
 app.listen(config.express.port);

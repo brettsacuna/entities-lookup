@@ -6,6 +6,12 @@
         "db": "establishments"
     },
     "express": {
-        "port": 80
+        "port": 9000
+    },
+    "pagination": {
+        "per_page": 5
+    },
+    "api": {
+        "url": "http://10.70.10.113:9000/"
     }
 }

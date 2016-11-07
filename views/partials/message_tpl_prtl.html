@@ -1,0 +1,12 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="valign-wrapper">
+            <i class="material-icons">message</i>&nbsp;<h4>Message System</h4>
+        </div>
+        <div ng-bind-html="alert.message"></div>
+    </div>
+    <div class="modal-footer">
+        <a class="waves-effect waves-light btn blue darken-1" ng-show="alert.button" ng-click="alert.callback()"><i class="material-icons right">done_all</i>{{alert.button}}</a>&nbsp;
+        <a class="waves-effect waves-light btn red darken-1" ng-click="alert.ok()"><i class="material-icons right">error</i>Close</a>
+    </div>
+</div>

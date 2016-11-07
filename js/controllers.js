@@ -4,7 +4,8 @@
     angular
         .module('entitiesLookupApp.controllers', [])
         .controller('searchFormCtrl', searchFormCtrl)
-        .controller('maintainersCtrl', maintainersCtrl);
+        .controller('maintainersCtrl', maintainersCtrl)
+        .controller('messageCtrlPrtl', messageCtrlPrtl);
 
     function searchFormCtrl (searchFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
@@ -103,11 +104,83 @@
         search_form.get_regions();
     }
 
-    function maintainersCtrl () {
+    function maintainersCtrl (messageFct, searchFct) {
         var maintainers = this;
 
         maintainers.category = {};
-        maintainers.category.datos = {};
+        maintainers.category.data = {};
         maintainers.category.action = 0;
+        maintainers.category.loading = false;
+
+        maintainers.save_category = function (form) {
+            var data = {
+                category : form.description.toUpperCase()
+            };
+
+            searchFct.saveCategory(data).then(function (response) {
+                if (response.status == 'ok') {
+                    maintainers.category.data = {};
+
+                    alert("Category was saved successfully !");
+
+                    maintainers.get_categories();
+                }
+            }).catch(function (reason) {
+                console.log(reason);
+            });
+        };
+
+        maintainers.get_categories = function (page) {
+            maintainers.category.loading = true;
+
+            searchFct.getTotalCategories((maintainers.category.filter || "")).then(function (total) {
+                maintainers.category.total = total;
+
+                searchFct.getCategories(1, (page || 1), (maintainers.category.filter || "")).then(function (response) {
+                    maintainers.category.list = response;
+
+                    maintainers.category.loading = false;
+                }).catch(function (reason) {
+                    console.log(reason);
+
+                    maintainers.category.loading = false;
+                });
+            }).catch(function (reason) {
+                console.log(reason);
+
+                maintainers.category.loading = false;
+            });
+        };
+
+        maintainers.get_categories();
+
+        maintainers.delete_category = function (category) {
+            searchFct.deleteCategory(category.id).then(function (response) {
+                if (response.status == "ok") {
+                    alert("Category was delete successfully !");
+
+                    maintainers.get_categories();
+                }
+            }).catch(function (reason) {
+                console.log(reason);
+            });
+        };
     }
+
+    function messageCtrlPrtl ($modalInstance, $sce, message, callback, button) {
+		var alert = this;
+
+		callback = callback || null;
+
+		alert.button = button;
+		alert.message = $sce.trustAsHtml(message);
+
+		alert.ok = function () {
+			$modalInstance.close();
+		};
+
+		if(callback){
+			alert.callback = callback;
+		}
+	}
 })();

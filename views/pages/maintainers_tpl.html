@@ -5,12 +5,12 @@
             <li class="tab col s6"><a href="#category" class="blue-text text-darken-2">Category</a></li>
         </ul>
     </div>
-    <div id="establishment" class="col s12" style="padding: 20px">
+    <div id="category" class="col s12" style="padding: 20px">
         <div class="row">
             <div class="col s7">
                 <h5 class="form-section" ng-if="maintainers.category.action == 0">New Category</h5>
                 <h5 class="form-section" ng-if="maintainers.category.action != 0">Category Selected ->&nbsp;<span class="label label-primary">{{}}</span></h5>
-                <form name="formCategory" novalidate ng-submit="maintainers.save_category(maintainers.category.data); formCategory.$setPristine()">
+                <form name="formCategory" novalidate>
                     <div class="row">
                         <div input-field class="input-field col s12">
                             <i class="material-icons prefix">description</i>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block"><i class="material-icons right">save</i>Save</a>
+                            <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block" ng-click="maintainers.save_category(maintainers.category.data)" ng-disabled="!maintainers.category.data.description"><i class="material-icons right">save</i>Save</a>
                         </div>
                     </div>
                 </form>
@@ -35,52 +35,57 @@
                     </div>
                     <div class="col s4">
                         <label>&nbsp;</label>
-                        <a class="waves-effect waves-light btn orange darken-1" style="display: block"><i class="material-icons right">search</i>Filter</a>
+                        <a class="waves-effect waves-light btn orange darken-1" style="display: block" ng-click="maintainers.get_categories(1)"><i class="material-icons right">search</i>Filter</a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-if="maintainers.category.loading == true">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+                <div class="row" ng-if="maintainers.category.loading == false">
                     <div class="col s12">
                         <table class="bordered">
-                            <caption>List categories</caption>
-                            <thead class="grey darken-1 white-text">
+                            <caption>Categories list</caption>
+                            <thead>
                                 <tr>
-                                    <th class="center-align">#</th>
                                     <th class="center-align">Category</th>
                                     <th class="center-align">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody ng-if="maintainers.category.list.length == 0">
                                 <tr>
-                                    <td>1</td>
-                                    <td>HOSPITALES</td>
+                                    <td class="center-align" colspan="2"><b>No categories founded.</b></td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-if="maintainers.category.list.length > 0">
+                                <tr ng-repeat="category in maintainers.category.list">
+                                    <td>{{category.category}}</td>
                                     <td class="center-align">
                                         <a class="waves-effect waves-light btn blue darken-1"><i class="material-icons">mode_edit</i></a>
-                                        <a class="waves-effect waves-light btn red darken-1"><i class="material-icons">delete</i></a>
+                                        <a class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_category(category)"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-if="maintainers.category.loading == false">
                     <div class="col s12 center-align">
                         <pagination
                             page="1"
                             page-size="5"
-                            total="50"
+                            total="maintainers.category.total"
                             show-prev-next="true"
                             use-simple-prev-next="false"
                             dots="...."
                             hide-if-empty="false"
                             adjacent="1"
                             scroll-top="true"
-                            pagination-action="" />
+                            pagination-action="maintainers.get_categories(page)" />
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="category" class="col s12" style="padding: 20px">
-
     </div>
 </div>
