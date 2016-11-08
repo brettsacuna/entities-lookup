@@ -9,6 +9,7 @@ var region          = require("./models/region.js");
 var province        = require("./models/province.js");
 var district        = require("./models/district.js");
 var category        = require("./models/category.js");
+var establishment        = require("./models/establishment.js");
 
 var app = express();
 
@@ -37,5 +38,11 @@ app.route('/category/count').get(category.count);
 app.route('/category/add').post(category.add);
 app.route('/category/edit').put(category.edit);
 app.route('/category/delete').delete(category.delete);
+
+app.route('/establishment/list').get(establishment.list);
+app.route('/establishment/count').get(establishment.count);
+app.route('/establishment/add').post(establishment.add);
+app.route('/establishment/edit').put(establishment.edit);
+app.route('/establishment/delete').delete(establishment.delete);
 
 app.listen(config.express.port);

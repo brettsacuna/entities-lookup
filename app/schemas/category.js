@@ -9,3 +9,7 @@ var Category = thinky.createModel("Category", {
 });
 
 exports.Category = Category;
+
+var Establishment = require(__dirname+"/establishment.js").Establishment;
+
+Category.hasMany(Establishment, "establishments", "id", "code_category");

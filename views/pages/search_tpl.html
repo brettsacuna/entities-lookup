@@ -7,27 +7,31 @@
     <div id="busqueda" class="col s12" style="padding: 20px">
         <h5>Filters</h5>
         <div class="row">
-            <!--<div class="input-field col s3">
-                <select material-select ng-model="search_form.region" ng-options="item as item.region for item in search_form.regions track by item.code_region" ng-change="search_form.get_provinces(search_form.region)" ng-if="search_form.regions.length > 0">
+            <div input-field class="col s3">
+                <select material-select ng-model="search_form.region" ng-change="search_form.get_provinces(search_form.region)">
                     <option value="">[ All ]</option>
+                    <option ng-repeat="region in search_form.regions" value="{{region.code_region}}">{{region.region}}</option>
                 </select>
                 <label>Region : <span class="new badge red" data-badge-caption="rows">{{search_form.regions.length}}</span></label>
             </div>
-            <div class="input-field col s3">
-                <select material-select ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-options="item as item.province for item in search_form.provinces track by item.code_province" ng-change="search_form.get_districts(search_form.province)" ng-if="search_form.provinces.length > 0">
+            <div input-field class="col s3">
+                <select material-select ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-change="search_form.get_districts(search_form.region, search_form.province)">
                     <option value="">[ All ]</option>
+                    <option ng-repeat="province in search_form.provinces" value="{{province.code_province}}">{{province.province}}</option>
                 </select>
                 <label for="province">Province : <span ng-if="search_form.provinces.length > 0" class="new badge blue" data-badge-caption="rows">{{search_form.provinces.length}}</span></label>
             </div>
-            <div class="input-field col s3">
-                <select material-select ng-model="search_form.district" ng-disabled="search_form.districts.length == 0" ng-options="item as item.district for item in search_form.districts track by item.code_district" ng-if="search_form.districts.length > 0">
+            <div input-field class="col s3">
+                <select material-select ng-model="search_form.district" ng-disabled="search_form.districts.length == 0">
                     <option value="">[ All ]</option>
+                    <option ng-repeat="district in search_form.districts" value="{{district.code_district}}">{{district.district}}</option>
                 </select>
                 <label for="district">District : <span ng-if="search_form.districts.length > 0" class="new badge orange" data-badge-caption="rows">{{search_form.districts.length}}</span></label>
-            </div>-->
-            <div class="input-field col s3">
-                <select material-select ng-model="search_form.category" ng-options="item as item.category for item in search_form.categories track by item.id" ng-if="search_form.categories.length > 0">
+            </div>
+            <div input-field class="col s3">
+                <select material-select ng-model="search_form.category">
                     <option value="">[ All ]</option>
+                    <option ng-repeat="category in search_form.categories" value="{{category.id}}">{{category.category}}</option>
                 </select>
                 <label>Category : </label>
             </div>

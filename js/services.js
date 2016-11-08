@@ -159,11 +159,95 @@
 
 		        return promise;
 			},
+            editCategory : function (data) {
+				var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.put(config.api.url+'category/edit', data)
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+			},
             deleteCategory : function (category) {
 				var defered = $q.defer();
 		        var promise = defered.promise;
 
 		        $http.delete(config.api.url+'category/delete?id='+category)
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+			},
+            getEstablishments : function (flag, page, filter) {
+                var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.get(config.api.url+'establishment/list?flag='+flag+'&start='+page+'&filter='+filter.toUpperCase())
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+            },
+            getTotalEstablishments : function (filter) {
+                var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.get(config.api.url+'establishment/count?filter='+filter.toUpperCase())
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+            },
+            saveEstablishment : function (data) {
+				var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.post(config.api.url+'establishment/add', data)
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+			},
+            editEstablishment : function (data) {
+				var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.put(config.api.url+'establishment/edit', data)
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+			},
+            deleteEstablishment : function (establishment) {
+				var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.delete(config.api.url+'establishment/delete?id='+establishment)
 		            .success(function(data) {
 		                defered.resolve(data);
 		            })

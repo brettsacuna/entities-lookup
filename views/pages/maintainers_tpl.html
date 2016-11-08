@@ -1,15 +1,144 @@
 <div class="row">
     <div class="col s12">
         <ul tabs class="tabs tabs-fixed-width">
-            <li class="tab col s6"><a href="#establishment" class="blue-text text-darken-2">Establishment</a></li>
-            <li class="tab col s6"><a href="#category" class="blue-text text-darken-2">Category</a></li>
+            <li class="tab col s6"><a href="#establishment" class="blue-text text-darken-2" ng-click="maintainers.button_flag(0)">Establishment</a></li>
+            <li class="tab col s6"><a href="#category" class="blue-text text-darken-2" ng-click="maintainers.button_flag(1)">Category</a></li>
         </ul>
+    </div>
+    <div id="establishment" class="col s12" style="padding: 20px">
+        <div class="row">
+            <div class="col s6">
+                <h5 ng-if="maintainers.establishment.action == 0">New Establishment</h5>
+                <h5 ng-if="maintainers.establishment.action != 0">Establishment Selected :<span class="badge new green" data-badge-caption="">{{maintainers.establishment.data_modify.establishment}}</span><span class="badge new red" data-badge-caption="">{{maintainers.establishment.data_modify.id}}</span></h5>
+                <form name="formEstablishment" novalidate>
+                    <div class="row">
+                        <div input-field class="col s6">
+                            <i class="material-icons prefix">picture_in_picture</i>
+                            <select material-select watch ng-model="maintainers.establishment.data.category">
+                                <option value="">[ Category ]</option>
+                                <option ng-repeat="category in maintainers.category.list" value="{{category.id}}">{{category.category}}</option>
+                            </select>
+                            <label>Category : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div input-field class="input-field col s12">
+                            <i class="material-icons prefix">business</i>
+                            <input type="text" placeholder="Type establishment" ng-model="maintainers.establishment.data.establishment">
+                            <label>Establishment : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div input-field class="input-field col s12">
+                            <i class="material-icons prefix">my_location</i>
+                            <input type="text" placeholder="Type address" ng-model="maintainers.establishment.data.address">
+                            <label>Address : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div input-field class="input-field col s6">
+                            <i class="material-icons prefix">location_on</i>
+                            <input type="text" placeholder="Type latitude" ng-model="maintainers.establishment.data.latitude">
+                            <label>Latitude : </label>
+                        </div>
+                        <div input-field class="input-field col s6">
+                            <i class="material-icons prefix">navigation</i>
+                            <input type="text" placeholder="Type longitude" ng-model="maintainers.establishment.data.longitude">
+                            <label>Longitude : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div input-field class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input type="text" placeholder="Type phone" ng-model="maintainers.establishment.data.phone">
+                            <label>Phone : </label>
+                        </div>
+                        <div input-field class="input-field col s6">
+                            <i class="material-icons prefix">stay_primary_portrait</i>
+                            <input type="text" placeholder="Type cellphone" ng-model="maintainers.establishment.data.cellphone">
+                            <label>Cellphone : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block" ng-click="maintainers.save_establishment(maintainers.establishment.data)" ng-disabled="!maintainers.establishment.data.category || !maintainers.establishment.data.establishment || !maintainers.establishment.data.address || !maintainers.establishment.data.latitude || !maintainers.establishment.data.longitude || !maintainers.establishment.data.phone || !maintainers.establishment.data.cellphone"><i class="material-icons right">save</i>Save</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn btn-large red darken-1" style="display: block" ng-click="maintainers.cancel_establishment()" ng-if="maintainers.establishment.action != 0"><i class="material-icons right">error</i>Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col s6">
+                <h5 class="form-section">Establishments Registered</h5>
+                <div class="row">
+                    <div input-field class="col s8">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" placeholder="Type establishment" ng-model="maintainers.establishment.filter">
+                        <label>Filter : </label>
+                    </div>
+                    <div class="col s4">
+                        <label>&nbsp;</label>
+                        <a class="waves-effect waves-light btn orange darken-1" style="display: block" ng-click="maintainers.get_establishments(1)"><i class="material-icons right">search</i>Filter</a>
+                    </div>
+                </div>
+                <div class="row" ng-if="maintainers.establishment.loading == true">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+                <div class="row" ng-if="maintainers.establishment.loading == false">
+                    <div class="col s12">
+                        <table class="bordered">
+                            <caption>Establishments list</caption>
+                            <thead>
+                                <tr>
+                                    <th class="center-align">Establishment</th>
+                                    <th class="center-align">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-if="maintainers.establishment.list.length == 0">
+                                <tr>
+                                    <td class="center-align" colspan="2"><b>No establishments founded.</b></td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-if="maintainers.establishment.list.length > 0">
+                                <tr ng-repeat="establishment in maintainers.establishment.list" ng-class="{'grey darken-1 white-text' : establishment.modify}">
+                                    <td>{{establishment.establishment}}</td>
+                                    <td class="center-align">
+                                        <a class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_establishment(establishment)"><i class="material-icons">mode_edit</i></a>
+                                        <a class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_establishment(establishment)"><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" ng-if="maintainers.establishment.loading == false">
+                    <div class="col s12 center-align">
+                        <pagination
+                            page="1"
+                            page-size="5"
+                            total="maintainers.establishment.total"
+                            show-prev-next="true"
+                            use-simple-prev-next="false"
+                            dots="...."
+                            hide-if-empty="false"
+                            adjacent="1"
+                            scroll-top="true"
+                            pagination-action="maintainers.get_establishments(page)" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="category" class="col s12" style="padding: 20px">
         <div class="row">
             <div class="col s7">
-                <h5 class="form-section" ng-if="maintainers.category.action == 0">New Category</h5>
-                <h5 class="form-section" ng-if="maintainers.category.action != 0">Category Selected ->&nbsp;<span class="label label-primary">{{}}</span></h5>
+                <h5 ng-if="maintainers.category.action == 0">New Category</h5>
+                <h5 ng-if="maintainers.category.action != 0">Category Selected :<span class="badge new green" data-badge-caption="">{{maintainers.category.data_modify.description}}</span><span class="badge new red" data-badge-caption="">{{maintainers.category.data_modify.id}}</span></h5>
                 <form name="formCategory" novalidate>
                     <div class="row">
                         <div input-field class="input-field col s12">
@@ -21,6 +150,11 @@
                     <div class="row">
                         <div class="col s12">
                             <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block" ng-click="maintainers.save_category(maintainers.category.data)" ng-disabled="!maintainers.category.data.description"><i class="material-icons right">save</i>Save</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn btn-large red darken-1" style="display: block" ng-click="maintainers.cancel_category()" ng-if="maintainers.category.action != 0"><i class="material-icons right">error</i>Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -59,10 +193,10 @@
                                 </tr>
                             </tbody>
                             <tbody ng-if="maintainers.category.list.length > 0">
-                                <tr ng-repeat="category in maintainers.category.list">
+                                <tr ng-repeat="category in maintainers.category.list" ng-class="{'grey darken-1 white-text' : category.modify}">
                                     <td>{{category.category}}</td>
                                     <td class="center-align">
-                                        <a class="waves-effect waves-light btn blue darken-1"><i class="material-icons">mode_edit</i></a>
+                                        <a class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_category(category)"><i class="material-icons">mode_edit</i></a>
                                         <a class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_category(category)"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
