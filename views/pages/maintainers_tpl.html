@@ -29,6 +29,32 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div input-field class="input-field col s4">
+                            <i class="material-icons prefix">view_carousel</i>
+                            <select material-select watch ng-model="maintainers.establishment.data.region" ng-disabled="maintainers.establishment.regions.length == 0" ng-change="maintainers.get_provinces(maintainers.establishment.data.region)">
+                                <option value="">[ Region ]</option>
+                                <option ng-repeat="region in maintainers.establishment.regions" value="{{region.code_region}}">{{region.region | uppercase}}</option>
+                            </select>
+                            <label>Region : </label>
+                        </div>
+                        <div input-field class="input-field col s4">
+                            <i class="material-icons prefix">view_column</i>
+                            <select material-select watch ng-model="maintainers.establishment.data.province" ng-disabled="maintainers.establishment.provinces.length == 0" ng-change="maintainers.get_districts(maintainers.establishment.data.region, maintainers.establishment.data.province)">
+                                <option value="">[ Province ]</option>
+                                <option ng-repeat="province in maintainers.establishment.provinces" value="{{province.code_province}}">{{province.province | uppercase}}</option>
+                            </select>
+                            <label>Province : </label>
+                        </div>
+                        <div input-field class="input-field col s4">
+                            <i class="material-icons prefix">view_agenda</i>
+                            <select material-select watch ng-model="maintainers.establishment.data.district" ng-disabled="maintainers.establishment.districts.length == 0">
+                                <option value="">[ District ]</option>
+                                <option ng-repeat="district in maintainers.establishment.districts" value="{{district.code_district}}">{{district.district | uppercase}}</option>
+                            </select>
+                            <label>District : </label>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div input-field class="input-field col s12">
                             <i class="material-icons prefix">my_location</i>
                             <input type="text" placeholder="Type address" ng-model="maintainers.establishment.data.address">

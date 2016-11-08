@@ -109,9 +109,12 @@
             });
         };
 
-        //search_form.get_regions();
+        search_form.initialize = function () {
+            search_form.get_regions();
+            search_form.get_categories();
+        };
 
-        search_form.get_categories();
+        search_form.initialize();
     }
 
     function maintainersCtrl (messageFct, searchFct) {
@@ -128,6 +131,10 @@
         maintainers.category.data_modify = {};
         maintainers.category.action = 0;
         maintainers.category.loading = false;
+
+        maintainers.establishment.regions = [];
+        maintainers.establishment.provinces = [];
+        maintainers.establishment.districts = [];
 
         maintainers.save_establishment = function (form) {
             if (maintainers.establishment.action === 0) {
@@ -353,6 +360,44 @@
             maintainers.category.action = 0;
         };
 
+        maintainers.get_regions = function () {
+            searchFct.getRegions().then(function (response) {
+                maintainers.establishment.regions = _.sortBy(response, function (objRegion) {
+                    return objRegion.code_region;
+                });
+            }).catch(function (reason) {
+                console.log(reason);
+            });
+        };
+
+        maintainers.get_provinces = function (region) {
+            maintainers.establishment.provinces = []; maintainers.establishment.districts = []; maintainers.establishment.province = undefined; maintainers.establishment.district = undefined;
+
+            if (angular.isDefined(region) && region !== null) {
+                searchFct.getProvinces(region).then(function (response) {
+                    maintainers.establishment.provinces = _.sortBy(response, function (objProvince) {
+                        return objProvince.code_province;
+                    });
+                }).catch(function (reason) {
+                    console.log(reason);
+                });
+            }
+        };
+
+        maintainers.get_districts = function (region, province) {
+            maintainers.establishment.districts = []; maintainers.establishment.district = undefined;
+
+            if (angular.isDefined(province) && province !== null) {
+                searchFct.getDistricts(region, province).then(function (response) {
+                    maintainers.establishment.districts = _.sortBy(response, function (objDistrict) {
+                        return objDistrict.code_district;
+                    });
+                }).catch(function (reason) {
+                    console.log(reason);
+                });
+            }
+        };
+
         maintainers.button_flag = function (flag) {
             if (flag == 1) {
                 maintainers.cancel_establishment();
@@ -363,8 +408,13 @@
             }
         };
 
-        maintainers.get_categories(0);
-        maintainers.get_establishments();
+        maintainers.initialize = function () {
+            maintainers.get_regions();
+            maintainers.get_categories(0);
+            maintainers.get_establishments();
+        };
+
+        maintainers.initialize();
     }
 
     function messageCtrlPrtl ($modalInstance, $sce, message, callback, button) {
