@@ -2,7 +2,7 @@
     'use-strict';
 
     angular
-        .module('entitiesLookupApp', ['entitiesLookupApp.controllers', 'entitiesLookupApp.services', 'entitiesLookupApp.directives', 'ui.router', 'ui.materialize'])
+        .module('entitiesLookupApp', ['entitiesLookupApp.controllers', 'entitiesLookupApp.services', 'entitiesLookupApp.directives', 'entitiesLookupApp.components', 'ui.router', 'ui.materialize'])
         .run(appRun)
         .config(appConfig);
 

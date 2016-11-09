@@ -12,6 +12,8 @@
 
         search_form.regions = []; search_form.provinces = []; search_form.districts = [];
 
+        search_form.load_establishments = false;
+
         search_form.get_regions = function () {
             searchFct.getRegions().then(function (response) {
                 search_form.regions = _.sortBy(response, function (objRegion) {
@@ -115,6 +117,19 @@
         };
 
         search_form.initialize();
+
+        search_form.search_establishments = function () {
+            search_form.load_establishments = true;
+            search_form.establishments = [];
+
+            searchFct.searchEstablishments((search_form.region || ""), (search_form.province || ""), (search_form.district || ""), (search_form.category || ""), (search_form.filter || "")).then(function (response) {
+                search_form.establishments = response;
+                search_form.load_establishments = false;
+            }).catch(function (reason) {
+                console.log(reason);
+                search_form.load_establishments = false;
+            });
+        };
     }
 
     function maintainersCtrl (messageFct, searchFct) {

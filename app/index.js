@@ -40,6 +40,7 @@ app.route('/category/edit').put(category.edit);
 app.route('/category/delete').delete(category.delete);
 
 app.route('/establishment/list').get(establishment.list);
+app.route('/establishment/search').get(establishment.search);
 app.route('/establishment/count').get(establishment.count);
 app.route('/establishment/add').post(establishment.add);
 app.route('/establishment/edit').put(establishment.edit);

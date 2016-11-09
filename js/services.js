@@ -256,7 +256,21 @@
 		            });
 
 		        return promise;
-			}
+			},
+            searchEstablishments : function (region, province, district, category, filter) {
+                var defered = $q.defer();
+		        var promise = defered.promise;
+
+		        $http.get(config.api.url+'establishment/search?region='+region+'&province='+province+'&district='+district+'&category='+category+'&filter='+filter.toUpperCase())
+		            .success(function(data) {
+		                defered.resolve(data);
+		            })
+		            .error(function(err) {
+		                defered.reject(err);
+		            });
+
+		        return promise;
+            }
         };
     }
 
