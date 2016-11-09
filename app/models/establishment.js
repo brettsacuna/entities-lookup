@@ -23,6 +23,10 @@ exports.list = function (request, response, next) {
     }
 };
 
+exports.search = function (request, response, next) {
+    console.log(request.query);
+};
+
 exports.add = function (request, response, next) {
     var establishment = new Establishment(request.body);
 

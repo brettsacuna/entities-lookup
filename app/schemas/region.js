@@ -14,6 +14,8 @@ exports.Region = Region;
 
 var Province = require(__dirname+"/province.js").Province;
 var District = require(__dirname+"/district.js").District;
+var Establishment = require(__dirname+"/establishment.js").Establishment;
 
 Region.hasMany(Province, "provinces", "code_region", "code_region");
 Region.hasMany(District, "districts", "code_region", "code_region");
+Region.hasMany(Establishment, "establishments", "code_region", "code_region");

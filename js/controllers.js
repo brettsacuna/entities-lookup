@@ -145,7 +145,10 @@
                     longitude : form.longitude,
                     phone : form.phone,
                     cellphone : form.cellphone,
-                    code_category : form.category
+                    code_category : form.category,
+                    code_region : form.region,
+                    code_province : form.province,
+                    code_district : form.district
                 };
 
                 searchFct.saveEstablishment(data).then(function (response) {
@@ -165,6 +168,9 @@
                     phone : form.phone,
                     cellphone : form.cellphone,
                     code_category : form.category,
+                    code_region : form.region,
+                    code_province : form.province,
+                    code_district : form.district,
                     id : maintainers.establishment.data_modify.id || null
                 };
 
@@ -222,6 +228,9 @@
         maintainers.select_establishment = function (establishment) {
 			maintainers.cancel_edition_establishment();
 
+            maintainers.get_provinces(establishment.code_region);
+            maintainers.get_districts(establishment.code_region, establishment.code_province);
+
 			maintainers.establishment.data.establishment = establishment.establishment;
 			maintainers.establishment.data.address = establishment.address;
 			maintainers.establishment.data.latitude = establishment.latitude;
@@ -229,6 +238,9 @@
 			maintainers.establishment.data.phone = establishment.phone;
 			maintainers.establishment.data.cellphone = establishment.cellphone;
 			maintainers.establishment.data.category = establishment.code_category;
+			maintainers.establishment.data.region = establishment.code_region;
+			maintainers.establishment.data.province = establishment.code_province;
+			maintainers.establishment.data.district = establishment.code_district;
 			maintainers.establishment.data.id = establishment.id;
 
             maintainers.establishment.data_modify.establishment = establishment.establishment;
@@ -238,6 +250,9 @@
 			maintainers.establishment.data_modify.phone = establishment.phone;
 			maintainers.establishment.data_modify.cellphone = establishment.cellphone;
 			maintainers.establishment.data_modify.category = establishment.code_category;
+			maintainers.establishment.data_modify.region = establishment.code_region;
+			maintainers.establishment.data_modify.province = establishment.code_province;
+			maintainers.establishment.data_modify.district = establishment.code_district;
 			maintainers.establishment.data_modify.id = establishment.id;
 
 			maintainers.establishment.action = 1;
