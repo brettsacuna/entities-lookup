@@ -5,7 +5,9 @@
         .module('entitiesLookupApp.controllers', [])
         .controller('searchFormCtrl', searchFormCtrl)
         .controller('maintainersCtrl', maintainersCtrl)
-        .controller('messageCtrlPrtl', messageCtrlPrtl);
+        .controller('messageCtrlPrtl', messageCtrlPrtl)
+        .controller('establishmentListCtrl', establishmentListCtrl)
+        .controller('establishmentDetailCtrl', establishmentDetailCtrl);
 
     function searchFormCtrl (searchFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
@@ -463,4 +465,12 @@
 			alert.callback = callback;
 		}
 	}
+
+    function establishmentListCtrl () {
+        var establishment_list = this;
+    }
+
+    function establishmentDetailCtrl () {
+        var establishment_detail = this;
+    }
 })();

@@ -54,19 +54,7 @@
         <div class="row" ng-if="search_form.establishments && !search_form.load_establishments">
             <div class="col s12">
                 <h5>{{search_form.establishments.length > 0 ? 'Establishments Found' : 'No Establishments Found'}}</h5>
-                <ul class="collection" id="establishments" ng-if="search_form.establishments.length > 0">
-                    <li class="collection-item avatar" ng-repeat="establishment in search_form.establishments">
-                        <i class="material-icons circle red darken-1">business</i>
-                        <b><span class="title">{{establishment.establishment}}</span></b>
-                        <div class="valign-wrapper">
-                            <i class="material-icons">my_location</i>&nbsp;<h6>{{establishment.address}}</h6>&nbsp;<i class="material-icons">location_on</i>&nbsp;<a href="#">Ver mapa</a>
-                        </div>
-                        <div class="valign-wrapper">
-                            <i class="material-icons">stay_primary_portrait</i>&nbsp;<h6><b>Celular : </b>{{establishment.cellphone}}</h6>&nbsp;<i class="material-icons">phone</i>&nbsp;<h6><b>Fijo : </b>{{establishment.phone}}</h6>
-                        </div>
-                        <a href="#" class="secondary-content"><i class="material-icons medium grey-text">visibility</i></a>
-                    </li>
-                </ul>
+                <establishment-list list="search_form.establishments"></establishment-list>
             </div>
         </div>
     </div>
