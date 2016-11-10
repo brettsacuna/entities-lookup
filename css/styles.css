@@ -93,3 +93,45 @@ ul.side-nav li.active>a {
 .margin {
     margin: 0 !important;
 }
+
+.login-form {
+    width: 300px;
+    margin: 5% auto;
+}
+
+img.responsive-img, video.responsive-video {
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-image-login {
+    width: 100px;
+    height: 100px !important;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.input-field input[type=text]:focus + label {
+ color: #1976d2;
+}
+
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #1976d2;
+ box-shadow: 0 1px 0 0 #1976d2;
+}
+
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #1976d2;
+ box-shadow: 0 1px 0 0 #1976d2;
+}
+
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid #1976d2;
+ box-shadow: 0 1px 0 0 #1976d2;
+}
+
+.input-field .prefix.active {
+ color: #1976d2;
+}

@@ -13,7 +13,7 @@
 
     function appConfig ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
-			.otherwise('/app/search');
+			.otherwise('/access/login');
 
         $stateProvider
 			.state('app', {
@@ -21,9 +21,6 @@
 				url: '/app',
 				views: {
 					'': {
-						templateUrl: './index.html'
-					},
-					'layout@': {
 						templateUrl: './views/layout.html'
 					},
 					'content@': {
@@ -58,6 +55,17 @@
 				          return delay.promise;
 				        }
 					}
-				});
+				})
+            .state('access', {
+    				url: '/access',
+    				template: '<div class="row" ui-view></div>'
+    			})
+    				.state('access.login', {
+    					url: '/login',
+    					templateUrl: 'views/pages/login_tpl.html',
+    					data : { title: 'Log In' },
+    					authenticate: false,
+    					controller: 'loginCtrl as login',
+    				});
     }
 })();

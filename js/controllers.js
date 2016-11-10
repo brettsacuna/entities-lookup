@@ -3,11 +3,16 @@
 
     angular
         .module('entitiesLookupApp.controllers', [])
+        .controller('loginCtrl', loginCtrl)
         .controller('searchFormCtrl', searchFormCtrl)
         .controller('maintainersCtrl', maintainersCtrl)
         .controller('establishmentListCtrl', establishmentListCtrl)
         .controller('establishmentDetailCtrl', establishmentDetailCtrl)
         .controller('selectSearchCtrl', selectSearchCtrl);
+
+    function loginCtrl() {
+        var login = this;
+    }
 
     function searchFormCtrl (searchFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
