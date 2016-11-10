@@ -4,14 +4,27 @@
     angular
         .module('entitiesLookupApp.controllers', [])
         .controller('loginCtrl', loginCtrl)
+        .controller('mainCtrl', mainCtrl)
         .controller('searchFormCtrl', searchFormCtrl)
         .controller('maintainersCtrl', maintainersCtrl)
         .controller('establishmentListCtrl', establishmentListCtrl)
         .controller('establishmentDetailCtrl', establishmentDetailCtrl)
         .controller('selectSearchCtrl', selectSearchCtrl);
 
-    function loginCtrl() {
+    function mainCtrl($state) {
+        var main = this;
+
+        main.change_location = function (location) {
+            $state.go(location);
+        };
+    }
+
+    function loginCtrl($state) {
         var login = this;
+
+        login.log_in = function () {
+            $state.go("app.search");
+        };
     }
 
     function searchFormCtrl (searchFct) {

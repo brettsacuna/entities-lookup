@@ -21,7 +21,8 @@
 				url: '/app',
 				views: {
 					'': {
-						templateUrl: './views/layout.html'
+						templateUrl: './views/layout.html',
+                        controller: 'mainCtrl as main'
 					},
 					'content@': {
 						templateUrl: './views/content.html'

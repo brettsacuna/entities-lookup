@@ -135,3 +135,7 @@ img.responsive-img, video.responsive-video {
 .input-field .prefix.active {
  color: #1976d2;
 }
+
+.hidden {
+    display: none !important;
+}
