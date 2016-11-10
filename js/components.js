@@ -18,5 +18,20 @@
             bindings: {
                 establishment: '='
             }
+        })
+        .component('selectSearch', {
+            templateUrl: 'views/components/selectSearch.html',
+            controller: 'selectSearchCtrl',
+            controllerAs: 'select_search',
+            bindings: {
+                model: '=',
+                options: '=',
+                key: '@',
+                value: '@',
+                label: '@',
+                color: '@',
+                callback: '&',
+                callbackAlter: '&'
+            }
         });
 })();

@@ -8,11 +8,7 @@
         <h5>Filters</h5>
         <div class="row">
             <div input-field class="col s3">
-                <select material-select watch ng-model="search_form.region" ng-disabled="search_form.regions.length == 0" ng-change="search_form.get_provinces(search_form.region)">
-                    <option value="">[ All ]</option>
-                    <option ng-repeat="region in search_form.regions" value="{{region.code_region}}">{{region.region | uppercase}}</option>
-                </select>
-                <label>Region : <span class="new badge red" data-badge-caption="rows">{{search_form.regions.length}}</span></label>
+                <select-search model="search_form.region" options="search_form.regions" key="code_region" value="region" label="Region" color="red" callback="search_form.get_provinces(region)"></select-search>
             </div>
             <div input-field class="col s3">
                 <select material-select watch ng-model="search_form.province" ng-disabled="search_form.provinces.length == 0" ng-change="search_form.get_districts(search_form.region, search_form.province)">
@@ -22,11 +18,7 @@
                 <label for="province">Province : <span ng-if="search_form.provinces.length > 0" class="new badge blue" data-badge-caption="rows">{{search_form.provinces.length}}</span></label>
             </div>
             <div input-field class="col s3">
-                <select material-select watch ng-model="search_form.district" ng-disabled="search_form.districts.length == 0">
-                    <option value="">[ All ]</option>
-                    <option ng-repeat="district in search_form.districts" value="{{district.code_district}}">{{district.district | uppercase}}</option>
-                </select>
-                <label for="district">District : <span ng-if="search_form.districts.length > 0" class="new badge orange" data-badge-caption="rows">{{search_form.districts.length}}</span></label>
+                <select-search model="search_form.district" options="search_form.districts" key="code_district" value="district" label="District" color="orange"></select-search>
             </div>
             <div input-field class="col s3">
                 <select material-select watch ng-model="search_form.category">

@@ -1,0 +1,5 @@
+<select material-select watch ng-model="select_search.model" ng-disabled="select_search.options.length == 0" ng-change="select_search.on_callback()">
+    <option value="">[ All ]</option>
+    <option ng-repeat="option in select_search.options" value="{{option[select_search.key]}}">{{option[select_search.value] | uppercase}}</option>
+</select>
+<label>{{select_search.label}} : <span class="new badge {{select_search.color}}" data-badge-caption="rows" ng-if="select_search.options.length > 0">{{select_search.options.length}}</span></label>

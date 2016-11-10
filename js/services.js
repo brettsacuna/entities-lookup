@@ -321,8 +321,6 @@
 		}
 
 		function runController(options, modalInstance, scope) {
-			/// <param name="option" type="Object"></param>
-
 			if (!options.controller) return;
 
 			var controller = $controller(options.controller, {
@@ -370,9 +368,6 @@
 		}
 
 		function closeModal(modalBase, scope) {
-			/// <param name="modalBase" type="jQuery"></param>
-			/// <param name="scope" type="$rootScope.$new"></param>
-
 			modalBase.closeModal();
 
 			$timeout(function () {

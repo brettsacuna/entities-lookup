@@ -7,9 +7,10 @@
         .controller('maintainersCtrl', maintainersCtrl)
         .controller('messageCtrlPrtl', messageCtrlPrtl)
         .controller('establishmentListCtrl', establishmentListCtrl)
-        .controller('establishmentDetailCtrl', establishmentDetailCtrl);
+        .controller('establishmentDetailCtrl', establishmentDetailCtrl)
+        .controller('selectSearchCtrl', selectSearchCtrl);
 
-    function searchFormCtrl (searchFct) {
+    function searchFormCtrl (searchFct, messageFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
 
         search_form.regions = []; search_form.provinces = []; search_form.districts = [];
@@ -472,5 +473,13 @@
 
     function establishmentDetailCtrl () {
         var establishment_detail = this;
+    }
+
+    function selectSearchCtrl () {
+        var select_search = this;
+
+        select_search.on_callback = function () {
+            select_search.callback({region: select_search.model});
+        };
     }
 })();
