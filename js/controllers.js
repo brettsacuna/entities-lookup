@@ -5,12 +5,11 @@
         .module('entitiesLookupApp.controllers', [])
         .controller('searchFormCtrl', searchFormCtrl)
         .controller('maintainersCtrl', maintainersCtrl)
-        .controller('messageCtrlPrtl', messageCtrlPrtl)
         .controller('establishmentListCtrl', establishmentListCtrl)
         .controller('establishmentDetailCtrl', establishmentDetailCtrl)
         .controller('selectSearchCtrl', selectSearchCtrl);
 
-    function searchFormCtrl (searchFct, messageFct) {
+    function searchFormCtrl (searchFct) {
         var search_form = this, regions = [], provinces = [], districts = [];
 
         search_form.regions = []; search_form.provinces = []; search_form.districts = [];
@@ -135,7 +134,7 @@
         };
     }
 
-    function maintainersCtrl (messageFct, searchFct) {
+    function maintainersCtrl (searchFct) {
         var maintainers = this;
 
         maintainers.establishment = {};
@@ -172,7 +171,9 @@
                 searchFct.saveEstablishment(data).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(0);
-                        alert("Establishment was saved successfully !");
+
+                        maintainers.message = "Establishment was saved successfully !";
+                        $('#messageModal').modal('open');
                     }
                 }).catch(function (reason) {
                     console.log(reason);
@@ -195,7 +196,9 @@
                 searchFct.editEstablishment(data_edit).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(0);
-                        alert("Establishment was saved successfully !");
+
+                        maintainers.message = "Establishment was saved successfully !";
+                        $('#messageModal').modal('open');
                     }
                 }).catch(function (reason) {
                     console.log(reason);
@@ -232,15 +235,11 @@
         };
 
         maintainers.delete_establishment = function (establishment) {
-            searchFct.deleteEstablishment(establishment.id).then(function (response) {
-                if (response.status == "ok") {
-                    alert("Establishment was delete successfully !");
+            maintainers.flag = 0;
+            maintainers.id = establishment.id;
+            maintainers.message = "¿ Are you sure want delete establishment -> "+establishment.establishment+" ?";
 
-                    maintainers.get_establishments();
-                }
-            }).catch(function (reason) {
-                console.log(reason);
-            });
+            $("#confirmModal").modal('open');
         };
 
         maintainers.select_establishment = function (establishment) {
@@ -302,7 +301,9 @@
                 searchFct.saveCategory(data).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(1);
-                        alert("Category was saved successfully !");
+
+                        maintainers.message = "Category was saved successfully !";
+                        $('#messageModal').modal('open');
                     }
                 }).catch(function (reason) {
                     console.log(reason);
@@ -316,7 +317,9 @@
                 searchFct.editCategory(data_edit).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(1);
-                        alert("Category was saved successfully !");
+
+                        maintainers.message = "Category was saved successfully !";
+                        $('#messageModal').modal('open');
                     }
                 }).catch(function (reason) {
                     console.log(reason);
@@ -353,15 +356,11 @@
         };
 
         maintainers.delete_category = function (category) {
-            searchFct.deleteCategory(category.id).then(function (response) {
-                if (response.status == "ok") {
-                    alert("Category was delete successfully !");
+            maintainers.flag = 1;
+            maintainers.id = category.id;
+            maintainers.message = "¿ Are you sure want delete category -> "+category.category+" ?";
 
-                    maintainers.get_categories();
-                }
-            }).catch(function (reason) {
-                console.log(reason);
-            });
+            $("#confirmModal").modal('open');
         };
 
         maintainers.select_category = function (category) {
@@ -448,24 +447,35 @@
         };
 
         maintainers.initialize();
+
+        maintainers.deleteRow = function (flag, id) {
+            if (flag === 0) {
+                searchFct.deleteEstablishment(id).then(function (response) {
+                    if (response.status == "ok") {
+                        maintainers.message = "Establishment was deleted successfully !";
+                        $("#confirmModal").modal('close');
+                        $('#messageModal').modal('open');
+
+                        maintainers.get_establishments();
+                    }
+                }).catch(function (reason) {
+                    console.log(reason);
+                });
+            } else {
+                searchFct.deleteCategory(id).then(function (response) {
+                    if (response.status == "ok") {
+                        maintainers.message = "Category was deleted successfully !";
+                        $("#confirmModal").modal('close');
+                        $('#messageModal').modal('open');
+
+                        maintainers.get_categories();
+                    }
+                }).catch(function (reason) {
+                    console.log(reason);
+                });
+            }
+        };
     }
-
-    function messageCtrlPrtl ($modalInstance, $sce, message, callback, button) {
-		var alert = this;
-
-		callback = callback || null;
-
-		alert.button = button;
-		alert.message = $sce.trustAsHtml(message);
-
-		alert.ok = function () {
-			$modalInstance.close();
-		};
-
-		if(callback){
-			alert.callback = callback;
-		}
-	}
 
     function establishmentListCtrl () {
         var establishment_list = this;

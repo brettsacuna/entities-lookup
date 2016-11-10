@@ -8,43 +8,8 @@
       <title ng-bind="'Establishments Lookup | ' + $state.current.data.title"></title>
     </head>
     <body>
-        <div class="navbar-fixed">
-            <nav class="blue darken-1">
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo" data-activates="slide-out" data-sidenav="left" data-closeonclick="true" style="margin-left: 20px"><i class="material-icons">menu</i>Directory App</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-                        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div ui-view="content@"></div>
+        <div ui-view="layout@"></div>
 
-        <ul id="slide-out" class="side-nav">
-            <li>
-                <div class="userView">
-                    <div class="background">
-                        <img src="images/user-bg.jpg">
-                    </div>
-
-                    <a href="#"><img class="circle" src="images/user.jpg"></a>
-                    <a href="#"><span class="white-text name">Administrator</span></a>
-                    <a href="#"><span class="white-text email">administrator@administrator.com</span></a>
-                </div>
-            </li>
-            <li><a class="subheader">Main Menú</a></li>
-            <li ui-sref-active="bold active">
-                <a class="waves-effect" ui-sref="app.search"><i class="material-icons">search</i>Queries</a>
-            </li>
-            <li ui-sref-active="bold active">
-                <a class="waves-effect" ui-sref="app.maintainers"><i class="material-icons">web</i>Maintainers</a>
-            </li>
-            <li>
-                <a class="waves-effect" href="#"><i class="material-icons">trending_up</i>Reports</a>
-            </li>
-        </ul>
-        
         <script src="build/js/vendor.min.js"></script>
         <script src="build/js/app.js"></script>
     </body>

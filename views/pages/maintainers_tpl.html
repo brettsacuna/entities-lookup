@@ -134,8 +134,9 @@
                                 <tr ng-repeat="establishment in maintainers.establishment.list" ng-class="{'grey darken-1 white-text' : establishment.modify}">
                                     <td>{{establishment.establishment}}</td>
                                     <td class="center-align">
-                                        <a class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_establishment(establishment)"><i class="material-icons">mode_edit</i></a>
-                                        <a class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_establishment(establishment)"><i class="material-icons">delete</i></a>
+                                        <a ng-if="!establishment.modify" class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_establishment(establishment)"><i class="material-icons">mode_edit</i></a>
+                                        <a ng-if="!establishment.modify" class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_establishment(establishment)"><i class="material-icons">delete</i></a>
+                                        <span ng-if="establishment.modify" class="new badge red label" data-badge-caption="Selected"></span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -222,8 +223,9 @@
                                 <tr ng-repeat="category in maintainers.category.list" ng-class="{'grey darken-1 white-text' : category.modify}">
                                     <td>{{category.category}}</td>
                                     <td class="center-align">
-                                        <a class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_category(category)"><i class="material-icons">mode_edit</i></a>
-                                        <a class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_category(category)"><i class="material-icons">delete</i></a>
+                                        <a ng-if="!category.modify" class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.select_category(category)"><i class="material-icons">mode_edit</i></a>
+                                        <a ng-if="!category.modify" class="waves-effect waves-light btn red darken-1" ng-click="maintainers.delete_category(category)"><i class="material-icons">delete</i></a>
+                                        <span ng-if="category.modify" class="new badge red label" data-badge-caption="Selected"></span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -249,3 +251,32 @@
         </div>
     </div>
 </div>
+<div class="modal" id="messageModal">
+    <div class="modal-content">
+        <div class="valign-wrapper">
+            <i class="material-icons small">message</i>&nbsp;<h5>Message System</h5>
+        </div>
+        <div>{{maintainers.message}}</div>
+    </div>
+    <div class="modal-footer">
+        <a class="waves-effect waves-light btn red darken-1 modal-action modal-close"><i class="material-icons right">error</i>Close</a>
+    </div>
+</div>
+<div class="modal" id="confirmModal">
+    <div class="modal-content">
+        <div class="valign-wrapper">
+            <i class="material-icons small">message</i>&nbsp;<h5>Message System</h5>
+        </div>
+        <div><h6>{{maintainers.message}}</h6></div>
+    </div>
+    <div class="modal-footer">
+        <a class="waves-effect waves-light btn blue darken-1" ng-click="maintainers.deleteRow(maintainers.flag, maintainers.id)" style="margin-left: 10px; float: none;"><i class="material-icons right">delete</i>Delete</a>
+        <a class="waves-effect waves-light btn red darken-1 modal-action modal-close"><i class="material-icons right">error</i>Cancel</a>
+    </div>
+</div>
+<script type="text/javascript">
+    (function () {
+        $("#messageModal").modal();
+        $("#confirmModal").modal();
+    })();
+</script>

@@ -84,3 +84,12 @@ ul.side-nav li.active>a {
 .fadein.ng-enter.ng-enter-active {
   opacity: 1;
 }
+
+.label {
+    float: none !important;
+    padding: 5px !important;
+}
+
+.margin {
+    margin: 0 !important;
+}

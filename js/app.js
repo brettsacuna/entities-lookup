@@ -23,8 +23,11 @@
 					'': {
 						templateUrl: './index.html'
 					},
-					'content@': {
+					'layout@': {
 						templateUrl: './views/layout.html'
+					},
+					'content@': {
+						templateUrl: './views/content.html'
 					}
 				}
 			})

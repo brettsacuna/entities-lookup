@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="container">
+            <h4>{{$state.current.data.sub_title}}</h4>
+            <nav>
+                <div class="nav-wrapper red darken-1">
+                    <div class="col s12">
+                    <a ui-sref="app.search" class="breadcrumb">Home</a>
+                    <a class="breadcrumb">{{$state.current.data.title}}</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="card-panel hoverable">
+                <div ui-view class="fadein"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div show-during-resolve class="loading"></div>
