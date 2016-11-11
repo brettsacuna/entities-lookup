@@ -9,8 +9,11 @@ var Establishment = thinky.createModel("Establishment", {
     address : type.string().required(),
     latitude : type.string().required(),
     longitude : type.string().required(),
-    cellphone : type.string().required(),
-    phone : type.string().required(),
+    phones : [{
+        name : type.string(),
+        number : type.string(),
+        type : type.string()
+    }],
     code_category : type.string().required(),
     code_region : type.string().required(),
     code_province : type.string().required(),

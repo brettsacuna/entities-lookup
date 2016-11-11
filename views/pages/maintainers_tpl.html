@@ -7,7 +7,7 @@
     </div>
     <div id="establishment" class="col s12" style="padding: 20px">
         <div class="row">
-            <div class="col s6">
+            <div class="col s7">
                 <h5 ng-if="maintainers.establishment.action == 0">New Establishment</h5>
                 <h5 ng-if="maintainers.establishment.action != 0">Establishment Selected :<span class="badge new green" data-badge-caption="">{{maintainers.establishment.data_modify.establishment}}</span><span class="badge new red" data-badge-caption="">{{maintainers.establishment.data_modify.id}}</span></h5>
                 <form name="formEstablishment" novalidate>
@@ -74,30 +74,51 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div input-field class="input-field col s6">
-                            <i class="material-icons prefix">phone</i>
-                            <input type="text" placeholder="Type phone" ng-model="maintainers.establishment.data.phone">
-                            <label>Phone : </label>
+                        <div input-field class="col s3">
+                            <i class="material-icons prefix">dialpad</i>
+                            <input type="text" placeholder="Type number" ng-model="maintainers.establishment.phones_form.number">
+                            <label>Number : </label>
                         </div>
-                        <div input-field class="input-field col s6">
-                            <i class="material-icons prefix">stay_primary_portrait</i>
-                            <input type="text" placeholder="Type cellphone" ng-model="maintainers.establishment.data.cellphone">
-                            <label>Cellphone : </label>
+                        <div input-field class="col s3">
+                            <i class="material-icons prefix">contacts</i>
+                            <input type="text" placeholder="Type name" ng-model="maintainers.establishment.phones_form.name">
+                            <label>Name : </label>
+                        </div>
+                        <div input-field class="col s3">
+                            <i class="material-icons prefix">group_work</i>
+                            <select material-select watch ng-model="maintainers.establishment.phones_form.type">
+                                <option value="">[ Category ]</option>
+                                <option value="CELULAR">CELULAR</option>
+                                <option value="TELEFONO">TELEFONO</option>
+                                <option value="ANEXO">ANEXO</option>
+                            </select>
+                            <label>Type : </label>
+                        </div>
+                        <a class="waves-effect waves-light btn btn-large orange darken-1 col s3" ng-click="maintainers.add_phone(maintainers.establishment.phones_form)" ng-disabled="!maintainers.establishment.phones_form.name || !maintainers.establishment.phones_form.number || !maintainers.establishment.phones_form.type"><i class="material-icons right">add</i>Add</a>
+                    </div>
+                    <h5 ng-if="maintainers.establishment.phones.length > 0">Phones List</h5>
+                    <div ng-if="maintainers.establishment.phones.length > 0" class="row" ng-repeat="phone in maintainers.establishment.phones">
+                        <div class="col s12">
+                            <ul class="collection">
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle {{phone.type == 'CELULAR' ? 'red' : 'blue'}} darken-1">{{phone.type == 'CELULAR' ? 'stay_primary_portrait' : 'phone'}}</i>
+                                    <b><span class="title">{{phone.name}}</span></b>
+                                    <p>Type : {{phone.type}}</p>
+                                    <p><b>Number : {{phone.number}}</b></p>
+                                    <a class="secondary-content" ng-click="maintainers.delete_phone(phone)"><i class="material-icons red-text medium">delete</i></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12">
-                            <a class="waves-effect waves-light btn btn-large blue darken-1" style="display: block" ng-click="maintainers.save_establishment(maintainers.establishment.data)" ng-disabled="!maintainers.establishment.data.category || !maintainers.establishment.data.establishment || !maintainers.establishment.data.address || !maintainers.establishment.data.latitude || !maintainers.establishment.data.longitude || !maintainers.establishment.data.phone || !maintainers.establishment.data.cellphone"><i class="material-icons right">save</i>Save</a>
-                        </div>
+                        <a class="waves-effect waves-light btn btn-large blue darken-1 col s12" ng-click="maintainers.save_establishment(maintainers.establishment.data)" ng-disabled="!maintainers.establishment.data.category || !maintainers.establishment.data.establishment || !maintainers.establishment.data.address || !maintainers.establishment.data.latitude || !maintainers.establishment.data.longitude || maintainers.establishment.phones.length == 0"><i class="material-icons right">save</i>Save</a>
                     </div>
                     <div class="row">
-                        <div class="col s12">
-                            <a class="waves-effect waves-light btn btn-large red darken-1" style="display: block" ng-click="maintainers.cancel_establishment()" ng-if="maintainers.establishment.action != 0"><i class="material-icons right">error</i>Cancel</a>
-                        </div>
+                        <a class="waves-effect waves-light btn btn-large red darken-1 col s12" ng-click="maintainers.cancel_establishment()" ng-if="maintainers.establishment.action != 0"><i class="material-icons right">error</i>Cancel</a>
                     </div>
                 </form>
             </div>
-            <div class="col s6">
+            <div class="col s5">
                 <h5 class="form-section">Establishments Registered</h5>
                 <div class="row">
                     <div input-field class="col s8">

@@ -178,8 +178,7 @@
                     address : form.address.toUpperCase(),
                     latitude : form.latitude,
                     longitude : form.longitude,
-                    phone : form.phone,
-                    cellphone : form.cellphone,
+                    phones : maintainers.establishment.phones,
                     code_category : form.category,
                     code_region : form.region,
                     code_province : form.province,
@@ -189,6 +188,8 @@
                 searchFct.saveEstablishment(data).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(0);
+                        maintainers.establishment.phones_form = {};
+                        maintainers.establishment.phones = [];
 
                         maintainers.message = "Establishment was saved successfully !";
                         $('#messageModal').modal('open');
@@ -202,8 +203,7 @@
                     address : form.address.toUpperCase(),
                     latitude : form.latitude,
                     longitude : form.longitude,
-                    phone : form.phone,
-                    cellphone : form.cellphone,
+                    phones : maintainers.establishment.phones,
                     code_category : form.category,
                     code_region : form.region,
                     code_province : form.province,
@@ -214,6 +214,8 @@
                 searchFct.editEstablishment(data_edit).then(function (response) {
                     if (response.status == 'ok') {
                         maintainers.button_flag(0);
+                        maintainers.establishment.phones_form = {};
+                        maintainers.establishment.phones = [];
 
                         maintainers.message = "Establishment was saved successfully !";
                         $('#messageModal').modal('open');
@@ -266,13 +268,13 @@
             maintainers.get_provinces(establishment.code_region);
             maintainers.get_districts(establishment.code_region, establishment.code_province);
 
+            maintainers.establishment.phones = establishment.phones;
+
 			maintainers.establishment.data.establishment = establishment.establishment;
 			maintainers.establishment.data.address = establishment.address;
 			maintainers.establishment.data.latitude = establishment.latitude;
 			maintainers.establishment.data.longitude = establishment.longitude;
-			maintainers.establishment.data.phone = establishment.phone;
-			maintainers.establishment.data.cellphone = establishment.cellphone;
-			maintainers.establishment.data.category = establishment.code_category;
+            maintainers.establishment.data.category = establishment.code_category;
 			maintainers.establishment.data.region = establishment.code_region;
 			maintainers.establishment.data.province = establishment.code_province;
 			maintainers.establishment.data.district = establishment.code_district;
@@ -282,8 +284,6 @@
 			maintainers.establishment.data_modify.address = establishment.address;
 			maintainers.establishment.data_modify.latitude = establishment.latitude;
 			maintainers.establishment.data_modify.longitude = establishment.longitude;
-			maintainers.establishment.data_modify.phone = establishment.phone;
-			maintainers.establishment.data_modify.cellphone = establishment.cellphone;
 			maintainers.establishment.data_modify.category = establishment.code_category;
 			maintainers.establishment.data_modify.region = establishment.code_region;
 			maintainers.establishment.data_modify.province = establishment.code_province;
@@ -306,6 +306,9 @@
 
 			maintainers.establishment.data = {};
 			maintainers.establishment.data_modify = {};
+
+            maintainers.establishment.phones_form = {};
+            maintainers.establishment.phones = [];
 
 			maintainers.establishment.action = 0;
 		};
@@ -479,7 +482,7 @@
                 }).catch(function (reason) {
                     console.log(reason);
                 });
-            } else {
+            } else if (flag == 1) {
                 searchFct.deleteCategory(id).then(function (response) {
                     if (response.status == "ok") {
                         maintainers.message = "Category was deleted successfully !";
@@ -491,7 +494,31 @@
                 }).catch(function (reason) {
                     console.log(reason);
                 });
+            } else {
+                maintainers.establishment.phones = _.without(maintainers.establishment.phones, _.findWhere(maintainers.establishment.phones, {type: id.type, name: id.name, number: id.number}));
+
+                maintainers.message = "Phone was deleted successfully !";
+                $("#confirmModal").modal('close');
+                $('#messageModal').modal('open');
             }
+        };
+
+        maintainers.establishment.phones = [];
+
+        maintainers.add_phone = function (phone) {
+            phone.name = phone.name.toUpperCase();
+            phone.number = phone.number.toUpperCase();
+
+            maintainers.establishment.phones.push(phone);
+            maintainers.establishment.phones_form = {};
+        };
+
+        maintainers.delete_phone = function (phone) {
+            maintainers.flag = 2;
+            maintainers.id = phone;
+            maintainers.message = "¿ Are you sure want delete phone -> "+phone.number+" - "+phone.name+" ?";
+
+            $("#confirmModal").modal('open');
         };
     }
 

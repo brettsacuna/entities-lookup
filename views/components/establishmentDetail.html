@@ -5,7 +5,7 @@
         <i class="material-icons">my_location</i>&nbsp;<h6>{{establishment_detail.establishment.address}}</h6>&nbsp;<i class="material-icons">location_on</i>&nbsp;<a href="#">Ver mapa</a>
     </div>
     <div class="valign-wrapper">
-        <i class="material-icons">stay_primary_portrait</i>&nbsp;<h6><b>Celular : </b>{{establishment_detail.establishment.cellphone}}</h6>&nbsp;<i class="material-icons">phone</i>&nbsp;<h6><b>Fijo : </b>{{establishment_detail.establishment.phone}}</h6>
+        <span ng-repeat="phone in establishment_detail.establishment.phones"><i class="material-icons">{{phone.type == 'CELULAR' ? 'stay_primary_portrait' : 'phone'}}</i>&nbsp;<h6><b>{{phone.type}} : </b>{{phone.number}}</h6><span>
     </div>
-    <a href="#" class="secondary-content"><i class="material-icons medium grey-text">visibility</i></a>
+    <a href="#" class="secondary-content"><i class="material-icons medium orange-text">visibility</i></a>
 </li>
